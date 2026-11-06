@@ -164,17 +164,32 @@ function M.updateUsingPrincess(slot)
     return true
 end
 
+
 function M.getDroneTag(species)
     database.set(1, "Forestry:beeDroneGE", 0, '{IsAnalyzed:1b,Genome:{Chromosomes:[0:{Slot:0b,UID0:"'..species..'",UID1:"'..species..'"}]}}')
-    local droneList = upgrade_me.getItemsInNetwork({label = database.get(1).label})
+
+    local droneList = upgrade_me.getItemsInNetwork({
+        label = database.get(1).label
+    }) or {}
+    
     for slot, stack in pairs(bot.inventory) do
-        if stack and stack.name == "Forestry:beeDroneGE" and stack.species and stack.species[1] == species and stack.species[2] == species then
+        if stack
+            and stack.name == "Forestry:beeDroneGE"
+            and stack.species
+            and stack.species[1] == species
+            and stack.species[2] == species then
             table.insert(droneList, component.inventory_controller.getStackInInternalSlot(slot))
         end
     end
+    
     if #droneList == 0 then
         return nil
     end
+    
+    if #droneList < 2 then
+        return droneList[1] and droneList[1].tag
+    end
+    
     local scoreList = {}
     local fullStacks
     for i, drone in pairs(droneList) do
