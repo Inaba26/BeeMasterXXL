@@ -19,7 +19,7 @@
 在机器人的 OC 终端执行（按你的 GTNH 版本选择分支）：
 
 ```
-wget https://raw.githubusercontent.com/Inaba26/BeeMasterXXL/beta1/installer.lua
+wget https://raw.githubusercontent.com/Inaba26/BeeMasterXXL/beta3/installer.lua
 installer
 ```
 
