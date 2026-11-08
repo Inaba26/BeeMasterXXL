@@ -1,6 +1,6 @@
 -- BeeMasterXXL 在线升级：除 config.lua 外全部覆盖更新，data.txt 不受影响
-local repo = "https://raw.githubusercontent.com/BigOrangeQWQ/BeeMasterXXL/"
-local branch = "beta2" -- 默认分支；2.9.0-beta1/beta2 对应 "beta1"/"beta2"，也可填 tag
+local repo = "https://raw.githubusercontent.com/Inaba26/BeeMasterXXL/"
+local branch = "beta3" -- 默认分支；2.9.0-beta1/beta2 对应 "beta1"/"beta2"，也可填 tag
 io.write("仓库地址（回车默认 " .. repo .. "）：")
 local r = io.read()
 if r and r ~= "" then repo = r end
